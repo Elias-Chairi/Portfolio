@@ -25,10 +25,8 @@
 ![linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![mac](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white)
 
-![most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username={Elias-Chairi})
-![badges](https://github-profile-trophy.vercel.app/?username={username})
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Elias-Chairi&layout=compact)
 
-![image]({https://github-readme-stats.vercel.app/api/top-langs/?username={Elias-Chairi}})
 
 <!--
 **Elias-Chairi/Elias-Chairi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
