@@ -28,8 +28,8 @@
 ![most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username={Elias-Chairi})
 ![badges](https://github-profile-trophy.vercel.app/?username={username})
 
-![stats](https://github-readme-stats.vercel.app/api?username={Elias-Chairi})
-![stats](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username={Elias-Chairi}&theme=vue)
+<img src"https://github-readme-stats.vercel.app/api?username={Elias-Chairi}">
+<img src"https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username={Elias-Chairi}&theme=vue">
 
 
 
