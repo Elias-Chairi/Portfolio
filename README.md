@@ -26,7 +26,7 @@
 ![mac](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white)
 
 
-<img src="https://github-readme-stats.vercel.app/api?username={Elias-Chairi}&show_icons=true&theme=gotham" alt="github stats" width="45%" align="right"/>
+<img src="https://github-readme-stats.vercel.app/api?username={elias-chairi}&show_icons=true&theme=gotham" alt="github stats" width="45%" align="right"/>
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Elias-Chairi&layout=compact)
 
