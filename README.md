@@ -28,14 +28,7 @@
 ![most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username={Elias-Chairi})
 ![badges](https://github-profile-trophy.vercel.app/?username={username})
 
-
-<div align="center">
-    <img src="https://github-profile-trophy.vercel.app/?username=Elias-Chairi&row=1&column=6&margin-h=8&theme=darkhub&count_private=true&margin-w=15&no-frame=true" alt="profile trophies" />
-    <br />
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username={Elias-Chairi}&theme=vue" alt="Tapajyoti Bose's GitHub Stats">
-    <br />
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=Elias-Chairi.Elias-Chairi" alt="visitors">
-</div>
+![image]({https://github-readme-stats.vercel.app/api/top-langs/?username={Elias-Chairi}})
 
 <!--
 **Elias-Chairi/Elias-Chairi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
