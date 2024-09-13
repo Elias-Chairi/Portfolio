@@ -1,5 +1,39 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
+import tailwind from "@astrojs/tailwind";
+import node from "@astrojs/node";
+import sanity from "@sanity/astro";
+import { loadEnv } from "vite";
+
+const {
+  PUBLIC_SANITY_STUDIO_PROJECT_ID,
+  PUBLIC_SANITY_STUDIO_DATASET,
+  PUBLIC_SANITY_PROJECT_ID,
+  PUBLIC_SANITY_DATASET
+} = loadEnv(import.meta.env.MODE, process.cwd(), "");
+
+const projectId = PUBLIC_SANITY_STUDIO_PROJECT_ID || PUBLIC_SANITY_PROJECT_ID;
+const dataset = PUBLIC_SANITY_STUDIO_DATASET || PUBLIC_SANITY_DATASET;
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  output: "hybrid",
+  adapter: node({
+    mode: "standalone",
+  }),
+  integrations: [
+    sanity({
+      projectId,
+      dataset,
+      studioBasePath: "/admin",
+      useCdn: false,
+      // `false` if you want to ensure fresh data
+      apiVersion: "2023-03-20" // Set to date of setup to use the latest API version
+    }),
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
+});
