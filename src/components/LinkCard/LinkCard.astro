@@ -1,0 +1,15 @@
+---
+import styles from "./styles.module.css"
+---
+
+<div class={styles.container}>
+    <div class:list={[styles.box, styles.shadowBox]} />
+    <div class:list={[styles.box, styles.contentBox]}>
+        <span class={styles.icon}>
+            <slot name="icon" />
+        </span>
+        <span class={styles.content}>
+            <slot />
+        </span>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+---
+import { icons } from "lucide-react";
+
+interface Props {
+  icon: keyof typeof icons;
+}
+const { icon } = Astro.props;
+
+const MyIcon = icons[icon]
+
+---
+
+<MyIcon />

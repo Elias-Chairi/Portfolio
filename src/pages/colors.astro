@@ -1,0 +1,95 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+if (!import.meta.env.DEV) {
+  return new Response("Not Found", { status: 404 });
+}
+
+---
+
+<Layout title="colors">
+  <div style="background-color: hsl(var(--background));">
+    <span>--background</span>
+  </div>
+  <div style="background-color: hsl(var(--foreground));">
+    <span>--foreground</span>
+  </div>
+  <div style="background-color: hsl(var(--card));">
+    <span>--card</span>
+  </div>
+  <div style="background-color: hsl(var(--card-foreground));">
+    <span>--card-foreground</span>
+  </div>
+  <div style="background-color: hsl(var(--popover));">
+    <span>--popover</span>
+  </div>
+  <div style="background-color: hsl(var(--popover-foreground));">
+    <span>--popover-foreground</span>
+  </div>
+  <div style="background-color: hsl(var(--primary));">
+    <span>--primary</span>
+  </div>
+  <div style="background-color: hsl(var(--primary-foreground));">
+    <span>--primary-foreground</span>
+  </div>
+  <div style="background-color: hsl(var(--secondary));">
+    <span>--secondary</span>
+  </div>
+  <div style="background-color: hsl(var(--secondary-foreground));">
+    <span>--secondary-foreground</span>
+  </div>
+  <div style="background-color: hsl(var(--muted));">
+    <span>--muted</span>
+  </div>
+  <div style="background-color: hsl(var(--muted-foreground));">
+    <span>--muted-foreground</span>
+  </div>
+  <div style="background-color: hsl(var(--accent));">
+    <span>--accent</span>
+  </div>
+  <div style="background-color: hsl(var(--accent-foreground));">
+    <span>--accent-foreground</span>
+  </div>
+  <div style="background-color: hsl(var(--destructive));">
+    <span>--destructive</span>
+  </div>
+  <div style="background-color: hsl(var(--destructive-foreground));">
+    <span>--destructive-foreground</span>
+  </div>
+  <div style="background-color: hsl(var(--border));">
+    <span>--border</span>
+  </div>
+  <div style="background-color: hsl(var(--input));">
+    <span>--input</span>
+  </div>
+  <div style="background-color: hsl(var(--ring));">
+    <span>--ring</span>
+  </div>
+  <div style="background-color: hsl(var(--chart-1));">
+    <span>--chart-1</span>
+  </div>
+  <div style="background-color: hsl(var(--chart-2));">
+    <span>--chart-2</span>
+  </div>
+  <div style="background-color: hsl(var(--chart-3));">
+    <span>--chart-3</span>
+  </div>
+  <div style="background-color: hsl(var(--chart-4));">
+    <span>--chart-4</span>
+  </div>
+  <div style="background-color: hsl(var(--chart-5));">
+    <span>--chart-5</span>
+  </div>
+</Layout>
+
+<style>
+  span {
+    background-color: white;
+    color: black;
+    padding: 5px;
+  }
+  div {
+    width: 100%;
+    padding: 20px 0;
+  }
+</style>
