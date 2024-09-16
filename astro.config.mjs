@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
-import node from "@astrojs/node";
 import sanity from "@sanity/astro";
 import { loadEnv } from "vite";
 
@@ -18,10 +17,7 @@ const dataset = PUBLIC_SANITY_STUDIO_DATASET || PUBLIC_SANITY_DATASET;
 
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid",
-  adapter: node({
-    mode: "standalone",
-  }),
+  output: "static", // we are hosting on github pages so we need to output to static
   integrations: [
     sanity({
       projectId,
