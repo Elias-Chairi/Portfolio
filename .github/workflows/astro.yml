@@ -30,6 +30,8 @@ env:
 
 jobs:
   build:
+    environment:
+      name: github-pages
     name: Build
     runs-on: ubuntu-latest
     steps:
