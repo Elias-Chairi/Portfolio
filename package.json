@@ -31,5 +31,8 @@
   },
   "devDependencies": {
     "@sanity/vision": "^3.57.3"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
   }
 }
