@@ -3,12 +3,10 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
-import { getStudioEnvironmentVariables } from "sanity/cli";
+import { loadEnv } from "vite";
 
 const { SANITY_STUDIO_PROJECT_ID: projectId, SANITY_STUDIO_DATASET: dataset } =
-  getStudioEnvironmentVariables({
-    envFile: { mode: "sanity-studio" },
-  });
+  loadEnv("sanity-studio", process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
