@@ -3,30 +3,22 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
-import { loadEnv } from "vite";
+import { getStudioEnvironmentVariables } from "sanity/cli";
 
-const {
-  PUBLIC_SANITY_STUDIO_PROJECT_ID,
-  PUBLIC_SANITY_STUDIO_DATASET,
-  PUBLIC_SANITY_PROJECT_ID,
-  PUBLIC_SANITY_DATASET,
-  PUBLIC_SANITY_STUDIO_BASE_PATH,
-} = loadEnv(import.meta.env.MODE, process.cwd(), "");
-
-const projectId = PUBLIC_SANITY_STUDIO_PROJECT_ID || PUBLIC_SANITY_PROJECT_ID;
-const dataset = PUBLIC_SANITY_STUDIO_DATASET || PUBLIC_SANITY_DATASET;
-const studioBasePath = PUBLIC_SANITY_STUDIO_BASE_PATH || "/admin";
+const { SANITY_STUDIO_PROJECT_ID: projectId, SANITY_STUDIO_DATASET: dataset } =
+  getStudioEnvironmentVariables({
+    envFile: { mode: "sanity-studio" },
+  });
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://Elias-Chairi.github.io',
-  base: 'Elias-Chairi',
+  site: "https://Elias-Chairi.github.io",
+  base: "Elias-Chairi",
   output: "static",
   integrations: [
     sanity({
       projectId,
       dataset,
-      studioBasePath,
       useCdn: false,
       // `false` if you want to ensure fresh data
       apiVersion: "2023-03-20", // Set to date of setup to use the latest API version
