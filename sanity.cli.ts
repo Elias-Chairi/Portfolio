@@ -1,14 +1,9 @@
-import { defineCliConfig, getStudioEnvironmentVariables } from "sanity/cli";
-
-const { SANITY_STUDIO_PROJECT_ID: projectId, SANITY_STUDIO_DATASET: dataset } =
-  getStudioEnvironmentVariables({
-    envFile: { mode: "sanity-studio" },
-  });
+import { defineCliConfig } from "sanity/cli";
 
 export default defineCliConfig({
   api: {
-    projectId,
-    dataset,
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+    dataset: process.env.SANITY_STUDIO_DATASET!,
   },
   studioHost: "elias-chairi",
 });

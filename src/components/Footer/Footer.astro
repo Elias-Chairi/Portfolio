@@ -1,15 +1,13 @@
 ---
 import { getFooter } from "@lib/sanity";
-import Styles from "./styles.module.css"
 import Icon from "@components/Icon.astro";
 import LinkCard from "@components/LinkCard/LinkCard.astro";
 
 const footer = await getFooter();
-
 ---
 
-<footer class={Styles.footer}>
-  <p class={Styles.footerBar}>
+<footer>
+  <p class="flex justify-center items-center gap-1">
     Made with <svg
       data-sanity-icon="heart-filled"
       width="1em"
@@ -24,18 +22,36 @@ const footer = await getFooter();
         stroke-width="1.2"></path></svg
     >
   </p>
-  <div class={Styles.container}>
-    <div class={Styles.footerTitleContainer}>
-        <h2>{footer.title}</h2>
-        <p>{footer.excerpt}</p>
+  <div class="flex justify-between p-4">
+    <div class="flex flex-col justify-start">
+      <span>
+        <h2 class="text-3xl">{footer.title}</h2>
+        <p class="text-slate-400">{footer.excerpt}</p>
+      </span>
+      <div class="flex py-4 gap-4">
+        {
+          footer.highlightedLinks?.map(
+            (link) =>
+              link.icon && (
+                <a href={link.href}>
+                  <Icon icon={link.icon} slot="icon" />
+                </a>
+              )
+          )
+        }
+      </div>
     </div>
-    {
-      footer.highlightedLinks?.map((link) => (
-        <LinkCard>
-          <Icon icon={link.icon} slot="icon" />
-          <a href={link.href}>{link.text}</a>
-        </LinkCard>
-      ))
-    }
+    <div class="hidden sm:flex gap-4">
+      {
+        footer.highlightedLinks?.map((link) => (
+          <LinkCard>
+            {link.icon && <Icon icon={link.icon} slot="icon" />}
+            <a href={link.href}>
+              <span>{link.text}</span>
+            </a>
+          </LinkCard>
+        ))
+      }
+    </div>
   </div>
 </footer>

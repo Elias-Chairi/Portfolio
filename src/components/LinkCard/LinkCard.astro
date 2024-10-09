@@ -1,14 +1,19 @@
 ---
-import styles from "./styles.module.css"
+import Box from "@components/LinkCard/LinkCardBox.astro";
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
 ---
 
-<div class={styles.container}>
-    <div class:list={[styles.box, styles.shadowBox]} />
-    <div class:list={[styles.box, styles.contentBox]}>
-        <span class={styles.icon}>
+<div class=`${className} relative z-0` style="--shadow-space: 20px;">
+    <Box class="-z-10 absolute bg-slate-700 size-[calc(100%-var(--shadow-space))] top-[var(--shadow-space)] left-[var(--shadow-space)]"/>
+    <Box class="bg-slate-400 size-52 flex flex-col justify-center items-center gap-1 mr-[var(--shadow-space)] mb-[var(--shadow-space)] px-4">
+        <span class={"[&>svg]:size-8"}>
             <slot name="icon" />
         </span>
-        <span class={styles.content}>
+        <span class="">
             <slot />
         </span>
     </div>

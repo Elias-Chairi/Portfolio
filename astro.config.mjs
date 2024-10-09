@@ -13,6 +13,7 @@ export default defineConfig({
   site: "https://Elias-Chairi.github.io",
   base: "Elias-Chairi",
   output: "static",
+  devToolbar: { enabled: false },
   integrations: [
     sanity({
       projectId,

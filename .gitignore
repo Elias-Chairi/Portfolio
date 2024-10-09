@@ -17,10 +17,13 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
-.env.sanity-studio
+.envrc
 
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
+
+# sanity schema
+schema/.schema-extract.json
