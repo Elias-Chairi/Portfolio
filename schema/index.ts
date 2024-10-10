@@ -1,5 +1,6 @@
 import blockContent from './blockContent'
-import post from './post'
 import footer from './footer'
+import project from './project'
+import linkAndIcon from './linkAndIcon'
 
-export const schemaTypes = [post, footer, blockContent]
+export const schemaTypes = [footer, blockContent, linkAndIcon, project]
