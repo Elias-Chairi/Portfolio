@@ -9,8 +9,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "sanity": "sanity",
-    "sanity:studio-deploy": "sanity deploy",
-    "sanity:typegen": "sanity schema extract --path=./schema/.schema-extract.json && sanity typegen generate"
+    "sanity:deploy": "sanity deploy",
+    "sanity:typegen": "sanity schema extract --path=./schema/.schema-extract.json && sanity typegen generate",
+    "sanity:dev": "sanity dev"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
