@@ -3,10 +3,6 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
-import { loadEnv } from "vite";
-
-const { SANITY_STUDIO_PROJECT_ID: projectId, SANITY_STUDIO_DATASET: dataset } =
-  loadEnv("sanity-studio", process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,8 +12,8 @@ export default defineConfig({
   devToolbar: { enabled: false },
   integrations: [
     sanity({
-      projectId,
-      dataset,
+      projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+      dataset: process.env.SANITY_STUDIO_DATASET,
       useCdn: false,
       // `false` if you want to ensure fresh data
       apiVersion: "2023-03-20", // Set to date of setup to use the latest API version

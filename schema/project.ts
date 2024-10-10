@@ -30,7 +30,6 @@ export default defineType({
       name: 'mainImage',
       title: 'Main Image (Cover Image)',
       type: 'image',
-      validation: Rule => Rule.required(),
     },
     {
       name: 'gallery',

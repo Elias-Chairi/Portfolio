@@ -1,3 +1,3 @@
-/// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/client" />
-/// <reference types="@sanity/astro/module" />
+import "../.astro/types.d.ts"
+import "astro/client"
+import "@sanity/astro/module"

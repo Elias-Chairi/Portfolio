@@ -1,11 +1,9 @@
 import { defineType } from "sanity";
 import { icons } from "lucide-react";
 
-let iconsList: { title: string; value: string }[] = [];
-
-Object.entries(icons).forEach(([icon, component]) => {
-  iconsList.push({ title: component.displayName || "", value: icon });
-});
+const iconsList = Object.entries(icons).map(
+  ([icon, component]) => ({ title: component.displayName || "", value: icon })
+);
 
 export default defineType({
   title: "Link and Icon",

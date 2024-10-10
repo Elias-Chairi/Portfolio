@@ -3,28 +3,28 @@ import type { InferGetStaticParamsType } from "astro";
 import { PortableText } from "astro-portabletext";
 import Layout from "../../layouts/Layout.astro";
 import { urlFor } from "../../lib/image";
-import { getPost, getPosts } from "../../lib/sanity";
+import { getProject, getProjects } from "../../lib/sanity";
 
 export async function getStaticPaths() {
-  const posts = await getPosts();
-  return posts.map((post) => ({
-    params: { slug: post.slug.current },
+  const projects = await getProjects();
+  return projects.map((project) => ({
+    params: { slug: project.slug.current },
   }));
 }
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 const { slug } = Astro.params as Params;
 
-const post = await getPost(slug);
+const project = await getProject(slug);
 ---
 
-<Layout title={post.title!}>
+<Layout title={project.title}>
   <section class="post">
     {
-      post.mainImage ? (
+      project.mainImage ? (
         <img
           class="post__cover"
-          src={urlFor(post.mainImage).url()}
+          src={urlFor(project.mainImage!).url()}
           alt="Cover image"
         />
       ) : (
@@ -32,13 +32,12 @@ const post = await getPost(slug);
       )
     }
     <div class="post__container">
-      <h1 class="post__title">{post.title}</h1>
-      <p class="post__excerpt">{post.excerpt}</p>
+      <h1 class="post__title">{project.title}</h1>
       <p class="post__date">
-        {new Date(post._createdAt)}
+        {new Date(project._createdAt)}
       </p>
       <div class="post__content">
-        <PortableText value={post.body} />
+        <PortableText value={project.body!} />
       </div>
     </div>
   </section>
