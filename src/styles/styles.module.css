@@ -1,9 +1,0 @@
-.title {
-    font-size: var(--font-size-7);
-}
-
-.error {
-    font-size: var(--font-size-5);
-    background-color: hsl(var(--destructive));
-    color: hsl(var(--destructive-foreground));
-}
