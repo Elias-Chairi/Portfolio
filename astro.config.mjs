@@ -7,7 +7,7 @@ import sanity from "@sanity/astro";
 // https://astro.build/config
 export default defineConfig({
   site: "https://Elias-Chairi.github.io",
-  base: "Elias-Chairi",
+  base: "Portfolio",
   output: "static",
   devToolbar: { enabled: false },
   integrations: [
