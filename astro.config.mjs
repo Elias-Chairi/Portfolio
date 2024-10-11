@@ -3,11 +3,12 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
+import { urlBase } from "@lib/constants";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://Elias-Chairi.github.io",
-  base: "Portfolio",
+  base: urlBase,
   output: "static",
   devToolbar: { enabled: false },
   integrations: [
