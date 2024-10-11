@@ -54,12 +54,12 @@ export default {
       // 	}
       // }
       animation: {
-        topToBottom: "topToBottom 20s linear",
+        topToBottom: "topToBottom var(--side-bar-text-duration) linear",
       },
       keyframes: {
         topToBottom: {
           "0%": { top: "0" },
-          "100%": { top: "calc(100% + 1335.04px)" },
+          "100%": { top: "calc(100% + var(--side-bar-text-page-height))" },
         },
       },
     },

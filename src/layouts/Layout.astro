@@ -27,7 +27,7 @@ const { title, footer = true, sidebar = true } = Astro.props;
   </head>
   <body>
     <div class="flex">
-      {sidebar && <SidebarText text="ELIAS PETTERSEN CHAIRI" spacing={50}/>}
+      {sidebar && <SidebarText text="ELIAS PETTERSEN CHAIRI" spacing={50} animationSpeed={100}/>}
       <div class="flex-grow">
         <slot />
         {footer && <Footer />}

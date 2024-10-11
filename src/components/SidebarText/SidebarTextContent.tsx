@@ -3,9 +3,10 @@ import React, { useEffect, useState, useRef, type FC } from "react";
 export interface Props {
   text: string;
   spacing?: number;
+  animationSpeed?: number;
 }
 
-const SidebarText: FC<Props> = ({ text, spacing = 0 }) => {
+const SidebarText: FC<Props> = ({ text, spacing = 0, animationSpeed = 100 }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
   const [spanKeys, setSpanKeys] = useState<number[]>([0]);
 
@@ -15,16 +16,18 @@ const SidebarText: FC<Props> = ({ text, spacing = 0 }) => {
       .firstElementChild as HTMLSpanElement | null;
     if (!firstText) throw new Error("Container has no child");
 
-    const animationTime = 20;
     const animationDistance =
       containerRef.current.offsetHeight + firstText.offsetWidth;
-    const animationSpeed = animationDistance / animationTime;
+    const duration = animationDistance / animationSpeed;
 
     const distanceToFullySeeText = firstText.offsetWidth + spacing;
     const timeToFullySeeText = distanceToFullySeeText / animationSpeed;
 
     const totalSpans =
-      Math.ceil(containerRef.current.offsetHeight / animationDistance) + 1;
+      Math.ceil(containerRef.current.offsetHeight / animationDistance) + 2;
+
+    containerRef.current.style.setProperty("--side-bar-text-page-height", `${firstText.offsetWidth}px`)
+    containerRef.current.style.setProperty("--side-bar-text-duration", `${duration}s`)
 
     const interval = setInterval(() => {
       setSpanKeys((prev) => {
@@ -44,7 +47,7 @@ const SidebarText: FC<Props> = ({ text, spacing = 0 }) => {
     <span className="block h-full relative" ref={containerRef}>
       {spanKeys.map((key) => (
         <span
-          className="text-8xl py-4 tracking-wider whitespace-nowrap -rotate-90 origin-top-left absolute animate-topToBottom"
+          className="text-4xl md:text-8xl py-4 tracking-wider whitespace-nowrap -rotate-90 origin-top-left absolute animate-topToBottom"
           key={key}
         >
           {text}
