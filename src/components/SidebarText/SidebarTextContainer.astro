@@ -1,0 +1,11 @@
+---
+import TheText from './SidebarTextContent'
+import type { Props } from './SidebarTextContent'
+
+
+const props = Astro.props
+---
+
+<span class="min-w-32 overflow-hidden">
+    <TheText {...props} client:only="react"/>
+</span>
