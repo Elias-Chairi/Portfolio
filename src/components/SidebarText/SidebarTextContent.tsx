@@ -2,11 +2,10 @@ import React, { useEffect, useState, useRef, type FC } from "react";
 
 export interface Props {
   text: string;
-  spacing?: number;
   animationSpeed?: number;
 }
 
-const SidebarText: FC<Props> = ({ text, spacing = 0, animationSpeed = 100 }) => {
+const SidebarText: FC<Props> = ({ text, animationSpeed = 100 }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
   const [spanKeys, setSpanKeys] = useState<number[]>([0]);
 
@@ -15,6 +14,8 @@ const SidebarText: FC<Props> = ({ text, spacing = 0, animationSpeed = 100 }) => 
     const firstText = containerRef.current
       .firstElementChild as HTMLSpanElement | null;
     if (!firstText) throw new Error("Container has no child");
+
+    const spacing = firstText.offsetHeight / 2;
 
     const animationDistance =
       containerRef.current.offsetHeight + firstText.offsetWidth;
@@ -26,8 +27,14 @@ const SidebarText: FC<Props> = ({ text, spacing = 0, animationSpeed = 100 }) => 
     const totalSpans =
       Math.ceil(containerRef.current.offsetHeight / animationDistance) + 2;
 
-    containerRef.current.style.setProperty("--side-bar-text-page-height", `${firstText.offsetWidth}px`)
-    containerRef.current.style.setProperty("--side-bar-text-duration", `${duration}s`)
+    containerRef.current.style.setProperty(
+      "--side-bar-text-page-height",
+      `${firstText.offsetWidth}px`
+    );
+    containerRef.current.style.setProperty(
+      "--side-bar-text-duration",
+      `${duration}s`
+    );
 
     const interval = setInterval(() => {
       setSpanKeys((prev) => {
