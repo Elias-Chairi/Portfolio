@@ -1,0 +1,15 @@
+---
+
+type Props = {
+  class?: string;
+  text: string
+};
+
+const { class: classes, text } = Astro.props;
+---
+
+<span
+  class=`backdrop-blur-md bg-opacity-20 shadow-md border-[1px] border-slate-50 rounded-md ${classes}`
+>
+  {text}
+</span>

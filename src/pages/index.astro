@@ -1,10 +1,29 @@
 ---
+import ProjectCard from '@components/ProjectCard.astro';
 import Layout from '@layouts/Layout.astro';
+import { urlBase } from '@lib/constants';
+import { getProjects } from '@lib/sanity';
+
+const projects = await getProjects();
 ---
 
 <Layout title="Elias Pettersen Chairi">
-	<main>
-		<h1 class="text-3xl">Elias Pettersen Chairi</h1>
-		<div style="height: 90vh">
+	<main class="p-4 pl-0">
+		<div class="flex items-center gap-8">
+			<h1 class="text-3xl">Elias Pettersen Chairi</h1>
+			<img src=`/${urlBase}/IMG_0749.jpeg` alt="Elias Pettersen Chairi" class="rounded-full w-40"/>
+		</div>
+		<div>
+			<h2 class="text-2xl">Projects</h2>
+			<ul>
+				{projects.map((project) => (
+					<li>
+						<ProjectCard project={project} />
+					</li>
+				))}
+			</ul>
+		</div>
+
+		<div style="height: 60vh">
 	</main>
 </Layout>

@@ -1,0 +1,53 @@
+---
+import { urlBase } from "@lib/constants";
+import { urlFor } from "@lib/image";
+import type { Project } from "@lib/sanity.types.ts";
+import Tag from "./Tag.astro";
+
+type Props = {
+  project: Project;
+};
+
+const {
+  project: {
+    title,
+    slug,
+    body,
+    mainImage,
+    gallery,
+    date,
+    category,
+    technologies,
+    repositoryUrl,
+    url,
+  },
+} = Astro.props;
+---
+
+<a
+  href={`/${urlBase}/project/${slug.current}`}
+  class="flex justify-between p-2 backdrop-blur-md bg-slate-50 bg-opacity-20 shadow-md border-[1px] border-slate-50 rounded-md"
+>
+  <div>
+    <h3 class="text-xl font-bold">{title} <span>&rarr;</span></h3>
+    <span class="flex gap-2 mb-2">
+      <Tag text={category} class="text-sm p-1 bg-orange-500" />
+      {
+        technologies?.map((tech) => (
+          <Tag text={tech} class="text-sm p-1 bg-cyan-600" />
+        ))
+      }
+    </span>
+    <p class="text-sm">{new Date(date).toLocaleDateString()}</p>
+    <p class="text-sm">{repositoryUrl}</p>
+    <p class="text-sm">{url}</p>
+  </div>
+  <!-- {
+    mainImage && (
+      <img
+        src={urlFor(mainImage).url()}
+        class="w-full h-48 max-w-72 object-cover rounded-md"
+      />
+    )
+  } -->
+</a>
