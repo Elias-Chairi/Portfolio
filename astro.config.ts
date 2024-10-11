@@ -1,9 +1,8 @@
-// @ts-check
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import sanity from "@sanity/astro";
-import { urlBase } from "@lib/constants";
+import { urlBase } from "./src/lib/constants";
 
 // https://astro.build/config
 export default defineConfig({
