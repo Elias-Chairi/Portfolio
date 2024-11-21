@@ -1,29 +1,34 @@
 ---
-import ProjectCard from '@components/ProjectCard.astro';
-import Layout from '@layouts/Layout.astro';
-import { urlBase } from '@lib/constants';
-import { getProjects } from '@lib/sanity';
+import ProjectCard from "@components/ProjectCard.astro";
+import Layout from "@layouts/Layout.astro";
+import { urlBase } from "@lib/constants";
+import { getProjects } from "@lib/sanity";
 
 const projects = await getProjects();
 ---
 
 <Layout title="Elias Pettersen Chairi">
-	<main class="p-4 pl-0">
-		<div class="flex items-center gap-8">
-			<h1 class="text-3xl">Elias Pettersen Chairi</h1>
-			<img src=`/${urlBase}/IMG_0749.jpeg` alt="Elias Pettersen Chairi" class="rounded-full w-40"/>
-		</div>
-		<div>
-			<h2 class="text-2xl">Projects</h2>
-			<ul>
-				{projects.map((project) => (
-					<li>
-						<ProjectCard project={project} />
-					</li>
-				))}
-			</ul>
-		</div>
+  <div class="flex items-center gap-2 flex-col-reverse pb-4 sm:flex-row sm:gap-8">
+    <h1 class="text-3xl">Elias Pettersen Chairi</h1>
+    <img
+      src=`/${urlBase}/IMG_0749.jpeg`
+      alt="Elias Pettersen Chairi"
+      class="rounded-full w-40"
+    />
+  </div>
+  <p class="pb-4">Jeg er en teknologiinteressert dataingeniørstudent med fagbrev i IT-utvikling og erfaring fra praksis hos NRK. Med en kombinasjon av praktisk kompetanse og teoretisk utdanning, brenner jeg for å utvikle innovative løsninger som gjør en forskjell. Her kan du utforske prosjektene mine og få et innblikk i min reise innen teknologi og problemløsning.</p>
+  <div>
+    <h2 class="text-2xl">Projects</h2>
+    <ul class="flex flex-col gap-3">
+      {
+        projects.map((project) => (
+          <li>
+            <ProjectCard project={project} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 
-		<div style="height: 60vh">
-	</main>
+  <div style="height: 60vh"></div>
 </Layout>

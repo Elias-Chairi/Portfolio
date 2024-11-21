@@ -15,7 +15,7 @@ const { title, footer = true, sidebar = true } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -27,9 +27,11 @@ const { title, footer = true, sidebar = true } = Astro.props;
   </head>
   <body>
     <div class="flex">
-      {sidebar && <SidebarText text="ELIAS PETTERSEN CHAIRI" animationSpeed={100}/>}
+      <!-- {sidebar && <SidebarText text="ELIAS PETTERSEN CHAIRI" animationSpeed={100}/>} -->
       <div class="flex-grow">
-        <slot />
+        <main class="p-4">
+          <slot />
+        </main>
         {footer && <Footer />}
       </div>
     </div>

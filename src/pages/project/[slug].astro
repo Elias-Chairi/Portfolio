@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import { urlFor } from "../../lib/image";
 import { getProject, getProjects } from "../../lib/sanity";
 import Tag from "@components/Tag.astro";
+import { urlBase } from "@lib/constants";
 
 export async function getStaticPaths() {
   const projects = await getProjects();
@@ -43,9 +44,10 @@ const {
       )
     }
   </div>
-  <div class="py-4">
+  <div class="pt-4">
+    <a href={`/${urlBase}`} class="text-blue-500 hover:underline">{"<-- Back to projects"}</a>
     <h1 class="text-3xl font-bold">{title}</h1>
-    <span class="flex gap-2">
+    <span class="flex gap-2 my-2">
       <Tag text={category} class="text-sm p-1 bg-orange-500" />
       {
         technologies?.map((tech) => (
@@ -53,6 +55,6 @@ const {
         ))
       }
     </span>
-    <!-- <PortableText value={project.body!} /> -->
+    <PortableText value={body!} />
   </div>
 </Layout>
