@@ -1,3 +1,4 @@
+import React from "react";
 import { defineType, defineArrayMember } from "sanity";
 
 /**
@@ -54,7 +55,12 @@ export default defineType({
               {
                 title: "URL",
                 name: "href",
-                type: "url",
+                type: "string",
+              },
+              {
+                title: "Open in new tab",
+                name: "targetBlank",
+                type: "boolean",
               },
             ],
           },

@@ -6,6 +6,8 @@ import { urlFor } from "../../lib/image";
 import { getProject, getProjects } from "../../lib/sanity";
 import Tag from "@components/Tag.astro";
 import { urlBase } from "@lib/constants";
+import BlockContentRenderer from "@components/BlockContentRenderer";
+
 
 export async function getStaticPaths() {
   const projects = await getProjects();
@@ -55,6 +57,7 @@ const {
         ))
       }
     </span>
-    <PortableText value={body!} />
+    <BlockContentRenderer blocks={body!} />
+    <!-- <PortableText value={body!} components={} /> -->
   </div>
 </Layout>
